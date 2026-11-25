@@ -1,0 +1,56 @@
+# EIDE / compiler output
+/build/
+/Debug/
+/Release/
+/Objects/
+/Listings/
+
+*.o
+*.obj
+*.d
+*.dep
+*.su
+*.lst
+*.map
+*.elf
+*.axf
+*.hex
+*.bin
+*.crf
+
+# EIDE local cache (keep .eide/eide.yml and project settings)
+/.eide/.cache/
+/.eide/cache/
+/.eide/logs/
+
+# Cortex-Debug, Ozone and J-Link local/session files
+.cortex*
+*.jdebug.user
+*.jdebug.user.json
+*.jlink-log
+JLinkLog.txt
+JLinkSettings.ini
+/.ozone/
+
+# Keil per-user/generated files
+*.uvguix.*
+*.uvoptx.bak
+*.uvprojx.bak
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Python tooling
+__pycache__/
+*.py[cod]
+/.venv/
+/venv/

@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "EIDE.ARM.GCC.InstallDirectory": "C:\\Users\\kkk\\.eide\\tools\\gcc_arm",
+        "EIDE.ARM.GCC.Prefix": "arm-none-eabi-",
+        "EIDE.JLink.InstallDirectory": "C:\\Users\\kkk\\.eide\\tools\\jlink",
+        "C_Cpp.default.configurationProvider": "cl.eide"
+    },
+    "extensions": {
+        "recommendations": [
+            "cl.eide",
+            "marus25.cortex-debug"
+        ]
+    }
+}

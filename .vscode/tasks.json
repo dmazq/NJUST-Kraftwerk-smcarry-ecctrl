@@ -1,0 +1,62 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build task",         // 任务标签
+            "type": "shell",               // 任务类型,因为要调用mingw32-make,是在终端(CMD)里运行的,所以是shell任务
+            "command": "C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin\\make.exe",
+            "args": ["-j8"],
+            "options": {
+                "env": {
+                    "PATH": "C:\\Users\\kkk\\.eide\\tools\\gcc_arm\\bin;C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [],          
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "download dap",
+            "type": "shell",               // 如果希望在下载前编译,可以把command换成下面的命令
+            "command":"C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin\\make.exe",
+            "args": ["download_dap"],
+            "options": {
+                "env": {
+                    "PATH": "C:\\Users\\kkk\\.eide\\tools\\gcc_arm\\bin;C:\\Users\\kkk\\.eide\\tools\\openocd_7a1adfbec_mingw32\\bin;C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin;${env:PATH}"
+                }
+            },
+            "group": {                     // 如果没有修改代码,编译任务不会消耗时间,因此推荐使用上面的替换.
+                "kind": "build",
+                "isDefault": false,
+            },
+        },
+        {
+            "label": "download jlink", // 要使用此任务,需添加jlink的环境变量
+            "type": "shell",
+            "command":"C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin\\make.exe",
+            "args": ["download_jlink"],
+            "options": {
+                "env": {
+                    "PATH": "C:\\Users\\kkk\\.eide\\tools\\gcc_arm\\bin;C:\\Users\\kkk\\.eide\\tools\\jlink;C:\\Users\\kkk\\.eide\\bin\\builder\\msys\\bin;${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false,
+            }
+        },
+        {
+            "label": "log",
+            "type": "shell",
+            "command":"JlinkRTTClient",
+            "args": [],
+            "problemMatcher": [],
+            // "dependsOn":[
+            //     "build task", // 可以添加多个.
+            // ]
+        }
+    ]
+}
